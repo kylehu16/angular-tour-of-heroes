@@ -33,7 +33,7 @@ export class HeroSearchComponent implements OnInit{
             .distinctUntilChanged() //ignore if next search term is same as previous
             .switchMap(term=>term //swith to new observable
             //return the http search observable
-            ? this. heroSearchService.search(term)
+            ? this.heroSearchService.search(term)
             // or the observable of empty heroes if no search term
             :Observable.of<Hero[]>([]))
             .catch(error=>{
@@ -43,7 +43,7 @@ export class HeroSearchComponent implements OnInit{
             })
     }
 
-    gottoDetail(hero:Hero):void{
+    gotoDetail(hero:Hero):void{
         let link=[`/detail`,hero.id];
         this.router.navigate(link);
     }
